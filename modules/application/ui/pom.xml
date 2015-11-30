@@ -17,6 +17,11 @@
       <groupId>org.rapidpm.microservice</groupId>
       <artifactId>rapidpm-microservice-modules-core</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.rapidpm.microservice</groupId>
+      <artifactId>rapidpm-microservice-modules-optionals-vaadin</artifactId>
+      <version>0.0.5-SNAPSHOT</version>
+    </dependency>
 
     <!--added be Sven-->
     <dependency>
@@ -55,6 +60,13 @@
       <version>${vaadin.version}</version>
     </dependency>
 
+
+    <dependency>
+      <groupId>com.vaadin</groupId>
+      <artifactId>vaadin-testbench-api</artifactId>
+      <version>7.5.9</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
 
