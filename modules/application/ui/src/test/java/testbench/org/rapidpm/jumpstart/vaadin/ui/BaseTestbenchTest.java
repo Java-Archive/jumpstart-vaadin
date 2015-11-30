@@ -1,7 +1,6 @@
 package testbench.org.rapidpm.jumpstart.vaadin.ui;
 
 import com.vaadin.testbench.TestBenchTestCase;
-import org.jboss.resteasy.test.TestPortProvider;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -25,6 +24,7 @@ public class BaseTestbenchTest extends TestBenchTestCase {
     DI.activatePackages("testbench.org.rapidpm");
     DI.activatePackages("junit.com.vaadin");
     DI.activatePackages("com.vaadin");
+    DI.activatePackages("org.rapidpm");
 
     Main.deploy();
 
