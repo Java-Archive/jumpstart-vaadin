@@ -1,4 +1,4 @@
-package junit.org.rapidpm.jumpstart.vaadin.logic.security;
+package junit.org.rapidpm.jumpstart.vaadin.ui;
 
 
 import org.rapidpm.jumpstart.vaadin.logic.security.LoginService;
