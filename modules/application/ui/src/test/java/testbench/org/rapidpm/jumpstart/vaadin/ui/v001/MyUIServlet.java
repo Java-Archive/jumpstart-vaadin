@@ -6,6 +6,8 @@ import org.rapidpm.microservice.optionals.vaadin.DDIVaadinServlet;
 
 import javax.servlet.annotation.WebServlet;
 import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by svenruppert on 11.08.15.
@@ -19,4 +21,8 @@ public class MyUIServlet extends DDIVaadinServlet {
   }
 
 
+  @Override
+  public List<String> topLevelPackagesToActivated() {
+    return Arrays.asList("org.rapidpm", "testbench.org.rapidpm");
+  }
 }
