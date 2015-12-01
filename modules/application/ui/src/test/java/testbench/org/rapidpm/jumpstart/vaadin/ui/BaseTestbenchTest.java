@@ -4,12 +4,18 @@ import com.vaadin.testbench.TestBenchTestCase;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.rapidpm.ddi.DI;
 import org.rapidpm.microservice.Main;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 /**
  * Created by svenruppert on 30.11.15.
@@ -22,6 +28,7 @@ public class BaseTestbenchTest extends TestBenchTestCase {
   public static final String FIREFOX = "firefox";
   public static final String CHROME = "chrome";
   public static final String PHANTOMJS = "phantomjs";
+  private RemoteWebDriver remoteWebDriver;
 
 
   @Before
@@ -46,7 +53,7 @@ public class BaseTestbenchTest extends TestBenchTestCase {
 //    System.setProperty("phantomjs.binary.path", "/Users/svenruppert/Applications/phantomjs-2.0.0-macosx/bin/phantomjs");
 
 
-    RemoteWebDriver remoteWebDriver = getRemoteWebDriver();
+    remoteWebDriver = getRemoteWebDriver();
 
     // Create a new Selenium driver - it is automatically extended to work
     // with TestBench
@@ -96,5 +103,17 @@ public class BaseTestbenchTest extends TestBenchTestCase {
     // the error occurred, you'll need to add the ScreenshotOnFailureRule
     // to your test and remove this call to quit().
     getDriver().quit();
+  }
+
+  protected void saveScreenshot(String name) throws IOException {
+    String fileName = String.format("%s_%s.png", getClass().getSimpleName(), name);
+    byte[] screenshotAs = remoteWebDriver.getScreenshotAs(OutputType.BYTES);
+    File file = new File(fileName);
+    try(FileOutputStream fileOutputStream = new FileOutputStream(file)) {
+      fileOutputStream.write(screenshotAs);
+    }
+
+
+
   }
 }

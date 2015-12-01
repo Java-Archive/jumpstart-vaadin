@@ -47,7 +47,9 @@ public class HelloWorldTestbenchTest extends BaseTestbenchTest {
 
   @Test
   public void test001() throws Exception {
+    saveScreenshot("before");
     fiveteenClicks();
+    saveScreenshot("after");
   }
 
   private void fiveteenClicks() {
