@@ -28,13 +28,6 @@ public class BaseTestbenchTest extends TestBenchTestCase {
 
 //    System.setProperty("phantomjs.binary.path", "/Users/svenruppert/Applications/phantomjs-2.0.0-macosx/bin/phantomjs");
 
-    DI.activatePackages("junit.org.rapidpm");
-    DI.activatePackages("testbench.org.rapidpm");
-    DI.activatePackages("junit.com.vaadin");
-    DI.activatePackages("com.vaadin");
-    DI.activatePackages("org.rapidpm");
-
-    Main.deploy();
 
     RemoteWebDriver remoteWebDriver = getRemoteWebDriver();
 
@@ -55,8 +48,7 @@ public class BaseTestbenchTest extends TestBenchTestCase {
         pageSource.contains("can't establish a connection to the server"));
   }
 
-  //@After
-  public void tearDownTestbench() throws Exception {
+
 
   private RemoteWebDriver getRemoteWebDriver() {
 
@@ -78,8 +70,8 @@ public class BaseTestbenchTest extends TestBenchTestCase {
     return phantomJSDriver;
   }
 
-  @After
-  public void tearDownBase() throws Exception {
+  //@After
+  public void tearDownTestbench() throws Exception {
 
     // Calling quit() on the driver closes the test browser.
     // When called like this, the browser is immediately closed on _any_
