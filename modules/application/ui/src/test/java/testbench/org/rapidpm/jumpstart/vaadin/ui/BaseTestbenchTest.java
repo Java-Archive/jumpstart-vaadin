@@ -23,6 +23,23 @@ public class BaseTestbenchTest extends TestBenchTestCase {
   public static final String CHROME = "chrome";
   public static final String PHANTOMJS = "phantomjs";
 
+
+  @Before
+  public void setUpBase() throws Exception {
+    DI.clearReflectionModel();
+    DI.activatePackages("org.rapidpm");
+    DI.activatePackages(this.getClass().getPackage().getName());
+    Main.deploy();
+    setUpTestbench();
+  }
+
+  @After
+  public void tearDown() throws Exception {
+    tearDownTestbench();
+    Main.stop();
+    DI.clearReflectionModel();
+  }
+
   //@Before
   public void setUpTestbench() throws Exception {
 
