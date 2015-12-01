@@ -4,7 +4,10 @@ import com.vaadin.testbench.TestBenchTestCase;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.rapidpm.ddi.DI;
 import org.rapidpm.microservice.Main;
 
@@ -14,14 +17,30 @@ import org.rapidpm.microservice.Main;
 public class BaseTestbenchTest extends TestBenchTestCase {
 
   public static final String baseUrl = "http://localhost:" + Main.DEFAULT_SERVLET_PORT + Main.MYAPP;
+  public static final String VAADIN_TESTBENCH_DRIVER_PROPERTY = "vaadin.testbench.driver";
+  public static final String DEAFAULT_WEB_DRIVER = "firefox";
+  public static final String FIREFOX = "firefox";
+  public static final String CHROME = "chrome";
+  public static final String PHANTOMJS = "phantomjs";
 
   //@Before
   public void setUpTestbench() throws Exception {
 
 //    System.setProperty("phantomjs.binary.path", "/Users/svenruppert/Applications/phantomjs-2.0.0-macosx/bin/phantomjs");
+
+    DI.activatePackages("junit.org.rapidpm");
+    DI.activatePackages("testbench.org.rapidpm");
+    DI.activatePackages("junit.com.vaadin");
+    DI.activatePackages("com.vaadin");
+    DI.activatePackages("org.rapidpm");
+
+    Main.deploy();
+
+    RemoteWebDriver remoteWebDriver = getRemoteWebDriver();
+
     // Create a new Selenium driver - it is automatically extended to work
     // with TestBench
-    setDriver(new FirefoxDriver());
+    setDriver(remoteWebDriver);
 //    setDriver(new PhantomJSDriver());
 
     // Open the test application URL with the ?restartApplication URL
@@ -38,6 +57,30 @@ public class BaseTestbenchTest extends TestBenchTestCase {
 
   //@After
   public void tearDownTestbench() throws Exception {
+
+  private RemoteWebDriver getRemoteWebDriver() {
+
+    String webDriver = System.getProperty(VAADIN_TESTBENCH_DRIVER_PROPERTY, DEAFAULT_WEB_DRIVER);
+    RemoteWebDriver phantomJSDriver;
+    switch (webDriver.toLowerCase()) {
+      case FIREFOX:
+        phantomJSDriver = new FirefoxDriver();
+        break;
+      case CHROME:
+        phantomJSDriver = new ChromeDriver();
+        break;
+      case PHANTOMJS:
+        phantomJSDriver = new PhantomJSDriver();
+        break;
+      default:
+        phantomJSDriver = new FirefoxDriver();
+    }
+    return phantomJSDriver;
+  }
+
+  @After
+  public void tearDownBase() throws Exception {
+
     // Calling quit() on the driver closes the test browser.
     // When called like this, the browser is immediately closed on _any_
     // error. If you wish to take a screenshot of the browser at the time

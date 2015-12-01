@@ -8,6 +8,8 @@ import org.rapidpm.ddi.DI;
 import org.rapidpm.microservice.Main;
 import testbench.org.rapidpm.jumpstart.vaadin.ui.BaseTestbenchTest;
 
+import java.io.IOException;
+
 /**
  * Created by svenruppert on 30.11.15.
  */
@@ -31,10 +33,12 @@ public class HelloWorldTestbenchTest extends BaseTestbenchTest {
 
   @Test
   public void test001() throws Exception {
+
     fiveteenClicks();
   }
 
-  private void fiveteenClicks() {
+  private void fiveteenClicks() throws IOException {
+
     $(ButtonElement.class).caption(MyUI.BTN_CLICK_ME).first().click();
     $(ButtonElement.class).caption(MyUI.BTN_CLICK_ME).first().click();
     $(ButtonElement.class).caption(MyUI.BTN_CLICK_ME).first().click();
