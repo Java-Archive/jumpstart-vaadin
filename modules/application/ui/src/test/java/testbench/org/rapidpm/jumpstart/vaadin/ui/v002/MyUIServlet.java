@@ -1,12 +1,11 @@
-package testbench.org.rapidpm.jumpstart.vaadin.ui.v001;
+package testbench.org.rapidpm.jumpstart.vaadin.ui.v002;
 
 import com.vaadin.annotations.VaadinServletConfiguration;
-import com.vaadin.server.VaadinServlet;
 import org.rapidpm.microservice.optionals.vaadin.DDIVaadinServlet;
 
 import javax.servlet.annotation.WebServlet;
 import java.time.LocalDateTime;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -23,6 +22,6 @@ public class MyUIServlet extends DDIVaadinServlet {
 
   @Override
   public List<String> topLevelPackagesToActivated() {
-    return Arrays.asList("org.rapidpm", MyUIServlet.class.getPackage().getName());
+    return Collections.emptyList();
   }
 }
