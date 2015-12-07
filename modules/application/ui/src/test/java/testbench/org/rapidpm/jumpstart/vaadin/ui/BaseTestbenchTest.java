@@ -35,7 +35,7 @@ public class BaseTestbenchTest extends TestBenchTestCase {
   public void setUpBase() throws Exception {
     DI.clearReflectionModel();
     DI.activatePackages("org.rapidpm");
-    DI.activatePackages(this.getClass().getPackage().getName());
+    DI.activatePackages(this.getClass());
     Main.deploy();
     setUpTestbench();
   }
