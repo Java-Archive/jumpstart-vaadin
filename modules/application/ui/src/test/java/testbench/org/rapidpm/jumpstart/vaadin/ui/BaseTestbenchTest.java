@@ -1,10 +1,13 @@
 package testbench.org.rapidpm.jumpstart.vaadin.ui;
 
+import com.vaadin.testbench.By;
 import com.vaadin.testbench.TestBenchTestCase;
+import com.vaadin.testbench.elements.VerticalLayoutElement;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
@@ -16,6 +19,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 /**
  * Created by svenruppert on 30.11.15.
@@ -36,6 +40,7 @@ public class BaseTestbenchTest extends TestBenchTestCase {
     DI.clearReflectionModel();
     DI.activatePackages("org.rapidpm");
     DI.activatePackages(this.getClass());
+    DI.activateDI(this);
     Main.deploy();
     setUpTestbench();
   }
@@ -54,7 +59,6 @@ public class BaseTestbenchTest extends TestBenchTestCase {
 
 
     remoteWebDriver = getRemoteWebDriver();
-
     // Create a new Selenium driver - it is automatically extended to work
     // with TestBench
     setDriver(remoteWebDriver);
@@ -63,6 +67,10 @@ public class BaseTestbenchTest extends TestBenchTestCase {
     // Open the test application URL with the ?restartApplication URL
     // parameter to ensure Vaadin provides us with a fresh UI instance.
     getDriver().get(baseUrl + "?restartApplication");
+
+    getTestBenchCommandExecutor().resizeViewPortTo(1280, 768);
+
+    getTestBenchCommandExecutor().enableWaitForVaadin();
 
     // If you deploy using WTP in Eclipse, this will fail. You should
     // update baseUrl to point to where the app is deployed.
@@ -77,21 +85,21 @@ public class BaseTestbenchTest extends TestBenchTestCase {
   private RemoteWebDriver getRemoteWebDriver() {
 
     String webDriver = System.getProperty(VAADIN_TESTBENCH_DRIVER_PROPERTY, DEAFAULT_WEB_DRIVER);
-    RemoteWebDriver phantomJSDriver;
+    RemoteWebDriver remoteWebDriver;
     switch (webDriver.toLowerCase()) {
       case FIREFOX:
-        phantomJSDriver = new FirefoxDriver();
+        remoteWebDriver = new FirefoxDriver();
         break;
       case CHROME:
-        phantomJSDriver = new ChromeDriver();
+        remoteWebDriver = new ChromeDriver();
         break;
       case PHANTOMJS:
-        phantomJSDriver = new PhantomJSDriver();
+        remoteWebDriver = new PhantomJSDriver();
         break;
       default:
-        phantomJSDriver = new FirefoxDriver();
+        remoteWebDriver = new FirefoxDriver();
     }
-    return phantomJSDriver;
+    return remoteWebDriver;
   }
 
   //@After
@@ -108,12 +116,18 @@ public class BaseTestbenchTest extends TestBenchTestCase {
   protected void saveScreenshot(String name) throws IOException {
     String fileName = String.format("%s_%s.png", getClass().getSimpleName(), name);
     byte[] screenshotAs = remoteWebDriver.getScreenshotAs(OutputType.BYTES);
-    File file = new File(fileName);
+    File file = new File("target" , fileName);
     try(FileOutputStream fileOutputStream = new FileOutputStream(file)) {
       fileOutputStream.write(screenshotAs);
     }
-
-
-
   }
+
+  @Deprecated
+  protected void screenshot() throws IOException {
+    saveScreenshot(LocalDateTime.now().toString());
+  }
+
+
+
+
 }

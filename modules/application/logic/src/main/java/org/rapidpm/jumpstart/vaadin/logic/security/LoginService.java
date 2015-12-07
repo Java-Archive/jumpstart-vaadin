@@ -5,4 +5,6 @@ package org.rapidpm.jumpstart.vaadin.logic.security;
  */
 public interface LoginService {
   boolean isAllowed(String username, String password);
+
+  User loadUser(String username, String password);
 }
