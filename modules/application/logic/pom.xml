@@ -31,5 +31,16 @@
    </dependency>
    <!--using Annotation Processing-->
 
+   <dependency>
+     <groupId>org.mapdb</groupId>
+     <artifactId>mapdb</artifactId>
+     <version>1.0.8</version>
+   </dependency>
+   <dependency>
+     <groupId>com.vaadin</groupId>
+     <artifactId>vaadin-server</artifactId>
+     <version>7.5.8</version>
+   </dependency>
+
  </dependencies>
 </project>

@@ -82,12 +82,14 @@ public class MainWindow extends VerticalLayout {
 
   public void setWorkingAreaContainer(final RapidPanel workingArea) {
     this.workingAreaContainer.removeAllComponents();
-    this.workingAreaContainer = workingArea;
+    this.replaceComponent(workingAreaContainer,workingArea);
+    workingAreaContainer = workingArea;
     this.workingAreaContainer.setSizeFull();
     this.workingAreaContainer.setMargin(true);
     this.workingAreaContainer.setSpacing(true);
     this.workingAreaContainer.setId(WORKING_AREA_CONTAINER);
-    this.setComponentAlignment(workingArea, Alignment.MIDDLE_CENTER);
+    this.setExpandRatio(this.workingAreaContainer, 1.0f);
+    this.setComponentAlignment(workingAreaContainer, Alignment.MIDDLE_CENTER);
   }
 
   public MenuBar getMenubar() {

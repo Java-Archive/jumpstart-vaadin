@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by svenruppert on 01.12.15.
  */
-@WebServlet(urlPatterns = "/*", name = "JumpstartServlet", asyncSupported = false, displayName = "JumpstartServlet")
+@WebServlet(urlPatterns = "/*", name = "JumpstartServlet", asyncSupported = true, displayName = "JumpstartServlet")
 @VaadinServletConfiguration(ui = JumpstartUI.class, productionMode = false)
 public class JumpstartServlet extends DDIVaadinServlet {
 

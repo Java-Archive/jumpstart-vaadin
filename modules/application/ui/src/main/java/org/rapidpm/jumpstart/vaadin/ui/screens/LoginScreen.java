@@ -24,6 +24,7 @@ public class LoginScreen extends RapidPanel {
   public static final String USERNAME_FIELD = "usernameField";
   public static final String PASSWORD_FIELD = "passwordField";
   public static final String LOGIN_BUTTON = "loginButton";
+  public static final String USERNAME = "username";
 
   private final Button loginButton = new Button();
   private final FormLayout loginLayout = new FormLayout();
