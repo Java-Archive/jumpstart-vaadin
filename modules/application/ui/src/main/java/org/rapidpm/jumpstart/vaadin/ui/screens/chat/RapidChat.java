@@ -13,7 +13,7 @@ public class RapidChat extends RapidPanel {
   private RapidChatComponent chatComponent;
 
   @PostConstruct
-  public void init(){
+  public void init() {
     chatComponent.setSizeFull();
     chatComponent.setResponsive(true);
     this.addComponent(chatComponent);

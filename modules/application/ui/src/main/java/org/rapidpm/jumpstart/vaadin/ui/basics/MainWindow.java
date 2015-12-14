@@ -16,8 +16,10 @@ public class MainWindow extends VerticalLayout {
 
   public static final String WORKING_AREA_CONTAINER = "workingAreaContainer";
 
-  @Inject PropertyService propertyService;
-  @Inject RapidMenuBar menubar;
+  @Inject
+  PropertyService propertyService;
+  @Inject
+  RapidMenuBar menubar;
 
   public static MainWindow getCurrent() {
     return (MainWindow) UI.getCurrent().getContent();
@@ -82,7 +84,7 @@ public class MainWindow extends VerticalLayout {
 
   public void setWorkingAreaContainer(final RapidPanel workingArea) {
     this.workingAreaContainer.removeAllComponents();
-    this.replaceComponent(workingAreaContainer,workingArea);
+    this.replaceComponent(workingAreaContainer, workingArea);
     workingAreaContainer = workingArea;
     this.workingAreaContainer.setSizeFull();
     this.workingAreaContainer.setMargin(true);

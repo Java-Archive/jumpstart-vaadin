@@ -32,8 +32,10 @@ public class LoginScreen extends RapidPanel {
   private final PasswordField passwordField = new PasswordField();
   private final ComboBox languageBox = new ComboBox("Language", Arrays.asList(Languages.values()));
 
-  @Inject LoginService loginService;
-  @Inject PropertyService propertyService;
+  @Inject
+  LoginService loginService;
+  @Inject
+  PropertyService propertyService;
 
 
   public LoginScreen() {
@@ -83,7 +85,7 @@ public class LoginScreen extends RapidPanel {
         //setting working Area
         UI.getCurrent().setContent(DI.activateDI(new MainWindow()));
       } else {
-        Notification.show(propertyService.resolve("login.failed"),propertyService.resolve("login.failed.description"), Notification.Type.WARNING_MESSAGE );
+        Notification.show(propertyService.resolve("login.failed"), propertyService.resolve("login.failed.description"), Notification.Type.WARNING_MESSAGE);
       }
     });
 
