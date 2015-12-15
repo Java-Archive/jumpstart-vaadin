@@ -4,49 +4,57 @@ import org.rapidpm.jumpstart.vaadin.logic.event.anotations.HandleEvent;
 
 import java.io.Serializable;
 import java.lang.reflect.Method;
-import java.util.concurrent.*;
+import java.util.Map;
+import java.util.SortedSet;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentSkipListSet;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created by b.bosch on 11.12.2015.
  */
 public class EventBus {
 
-  private static final ConcurrentHashMap<Class<? extends Serializable>, ConcurrentSkipListSet<EventHandlerInvocation>> handlerMap = new ConcurrentHashMap<>();
-  private static final ExecutorService executorService = Executors.newCachedThreadPool();
+  private static final Map<Class<? extends Serializable>, SortedSet<EventHandlerInvocation>> HANDLER_MAP = new ConcurrentHashMap<>();
+  private static final ExecutorService EXECUTOR_SERVICE = Executors.newCachedThreadPool();
 
-  public static void register(Object object) throws EventHandlerException {
-    final Class clazz = object.getClass();
-    for (final Method method : clazz.getMethods()) {
-      if (method.isAnnotationPresent(HandleEvent.class)) {
-        Class<?>[] parameterTypes = method.getParameterTypes();
+  private EventBus() {
+  }
+
+  public static void register(Object objectWithHandler) throws EventHandlerException {
+    final Class classWithHandler = objectWithHandler.getClass();
+    for (final Method handlerMethod : classWithHandler.getMethods()) {
+      if (handlerMethod.isAnnotationPresent(HandleEvent.class)) {
+        Class<?>[] parameterTypes = handlerMethod.getParameterTypes();
         if (parameterTypes.length != 1) {
           throw new EventHandlerException("Method with annotation " + HandleEvent.class.getSimpleName() + " can only have 1 parameter.");
         }
         Class<? extends Serializable> eventClass = (Class<? extends Serializable>) parameterTypes[0];
-        addHandlerToBus(object, method, eventClass);
+        addHandlerToBus(objectWithHandler, handlerMethod, eventClass);
       }
     }
   }
 
-  private static void addHandlerToBus(Object object, Method method, Class<? extends Serializable> eventClass) {
-    handlerMap.compute(eventClass, (aClass, eventHandlerDelegators) ->
+  private static void addHandlerToBus(Object objectWithHandler, Method handlerMethod, Class<? extends Serializable> eventClass) {
+    HANDLER_MAP.compute(eventClass, (key, eventHandlerInvocations) ->
     {
-      if (eventHandlerDelegators == null) {
-        eventHandlerDelegators = new ConcurrentSkipListSet<EventHandlerInvocation>();
+      if (eventHandlerInvocations == null) {
+        eventHandlerInvocations = new ConcurrentSkipListSet<>();
       }
-      eventHandlerDelegators.add(new EventHandlerInvocation(object, method));
-      return eventHandlerDelegators;
+      eventHandlerInvocations.add(new EventHandlerInvocation(objectWithHandler, handlerMethod));
+      return eventHandlerInvocations;
     });
   }
 
-  public static void fireSycronusEvent(Serializable event) {
-    final ConcurrentSkipListSet<EventHandlerInvocation> handlers = handlerMap.getOrDefault(event.getClass(), new ConcurrentSkipListSet<>());
+  public static void fireSynchronousEvent(Serializable event) {
+    final SortedSet<EventHandlerInvocation> handlers = HANDLER_MAP.getOrDefault(event.getClass(), new ConcurrentSkipListSet<>());
     handlers.forEach(eventHandlerDelegator -> eventHandlerDelegator.invokeHandler(event));
   }
 
   public static void fireAsyncEvent(Serializable event) {
-    final ConcurrentSkipListSet<EventHandlerInvocation> handlers = handlerMap.getOrDefault(event.getClass(), new ConcurrentSkipListSet<>());
-    handlers.forEach(eventHandlerDelegator -> executorService.submit(() -> eventHandlerDelegator.invokeHandler(event)));
+    final SortedSet<EventHandlerInvocation> handlers = HANDLER_MAP.getOrDefault(event.getClass(), new ConcurrentSkipListSet<>());
+    handlers.forEach(eventHandlerDelegator -> EXECUTOR_SERVICE.submit(() -> eventHandlerDelegator.invokeHandler(event)));
   }
 
 }

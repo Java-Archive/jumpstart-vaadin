@@ -49,6 +49,6 @@ public class RapidChatComponent extends RapidChatDesign {
     String message = this.inputText.getValue();
     this.inputText.clear();
     ChatMessage chatMessage = new ChatMessage(user, LocalDateTime.now(), message);
-    EventBus.fireSycronusEvent(chatMessage);
+    EventBus.fireSynchronousEvent(chatMessage);
   }
 }

@@ -7,9 +7,9 @@ import java.time.LocalDateTime;
  * Created by b.bosch on 10.12.2015.
  */
 public class ChatMessage implements Serializable {
-  String user;
-  LocalDateTime timestamp;
-  String message;
+  private String user;
+  private LocalDateTime timestamp;
+  private String message;
 
   public ChatMessage(String user, LocalDateTime timestamp, String message) {
     this.user = user;

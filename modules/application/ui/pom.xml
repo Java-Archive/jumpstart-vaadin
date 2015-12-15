@@ -63,16 +63,10 @@
       <artifactId>vaadin-push</artifactId>
     </dependency>
 
-
     <dependency>
       <groupId>com.vaadin</groupId>
       <artifactId>vaadin-testbench</artifactId>
       <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.vaadin</groupId>
-      <artifactId>vaadin-shared</artifactId>
-      <version>7.5.8</version>
     </dependency>
   </dependencies>
 
