@@ -47,6 +47,22 @@ public class EventBus {
     });
   }
 
+  public static void unregister(Object objectWithHandler) {
+    final Class classWithHandler = objectWithHandler.getClass();
+    for (final Method handlerMethod : classWithHandler.getMethods()) {
+      if (handlerMethod.isAnnotationPresent(HandleEvent.class)) {
+        Class<?>[] parameterTypes = handlerMethod.getParameterTypes();
+        if (parameterTypes.length != 1) {
+          throw new EventHandlerException("Method with annotation " + HandleEvent.class.getSimpleName() + " can only have 1 parameter.");
+        }
+        Class<? extends Serializable> eventClass = (Class<? extends Serializable>) parameterTypes[0];
+        SortedSet<EventHandlerInvocation> eventHandlerInvocations = HANDLER_MAP.get(eventClass);
+        eventHandlerInvocations.stream().filter(eventHandlerInvocation -> eventHandlerInvocation.callsHandlerOf(objectWithHandler))
+                .forEach(deadInvocation -> eventHandlerInvocations.remove(deadInvocation));
+      }
+    }
+  }
+
   public static void fireSynchronousEvent(Serializable event) {
     final SortedSet<EventHandlerInvocation> handlers = HANDLER_MAP.getOrDefault(event.getClass(), new ConcurrentSkipListSet<>());
     handlers.forEach(eventHandlerDelegator -> eventHandlerDelegator.invokeHandler(event));

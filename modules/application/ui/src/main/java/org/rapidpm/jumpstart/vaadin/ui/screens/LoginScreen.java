@@ -7,7 +7,7 @@ import org.rapidpm.ddi.DI;
 import org.rapidpm.jumpstart.vaadin.logic.properties.PropertyService;
 import org.rapidpm.jumpstart.vaadin.logic.security.LoginService;
 import org.rapidpm.jumpstart.vaadin.logic.security.User;
-import org.rapidpm.jumpstart.vaadin.ui.basics.Languages;
+import org.rapidpm.jumpstart.vaadin.logic.api.Languages;
 import org.rapidpm.jumpstart.vaadin.ui.basics.MainWindow;
 import org.rapidpm.jumpstart.vaadin.ui.basics.RapidPanel;
 
@@ -25,6 +25,7 @@ public class LoginScreen extends RapidPanel {
   public static final String PASSWORD_FIELD = "passwordField";
   public static final String LOGIN_BUTTON = "loginButton";
   public static final String USERNAME = "username";
+  public static final String LANGUAGE_SESSION_ATTRIBUTE = "language";
 
   private final Button loginButton = new Button();
   private final FormLayout loginLayout = new FormLayout();
@@ -75,7 +76,7 @@ public class LoginScreen extends RapidPanel {
       final String username = usernameField.getValue();
       final String password = passwordField.getValue();
 
-      VaadinSession.getCurrent().setAttribute("language", languageBox.getValue());
+      VaadinSession.getCurrent().setAttribute(LANGUAGE_SESSION_ATTRIBUTE, languageBox.getValue());
 
       final boolean allowed = loginService.isAllowed(username, password);
       if (allowed) {

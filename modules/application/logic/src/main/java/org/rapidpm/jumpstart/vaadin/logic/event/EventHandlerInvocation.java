@@ -45,4 +45,8 @@ public class EventHandlerInvocation implements Comparable {
   public int hashCode() {
     return Objects.hash(objectToCall, handler);
   }
+
+  public boolean callsHandlerOf(Object objectWithHandler) {
+    return objectToCall == objectWithHandler;
+  }
 }

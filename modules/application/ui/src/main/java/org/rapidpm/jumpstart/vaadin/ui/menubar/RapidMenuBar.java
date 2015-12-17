@@ -10,7 +10,6 @@ import org.rapidpm.jumpstart.vaadin.ui.screens.info.DisclaimerScreen;
 import org.rapidpm.jumpstart.vaadin.ui.screens.info.ImpressumScreen;
 import org.rapidpm.jumpstart.vaadin.ui.screens.info.SupportScreen;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 /**
@@ -23,7 +22,6 @@ public class RapidMenuBar extends MainMenuBar {
   @Inject
   PropertyService propertyService;
 
-  @PostConstruct
   @Override
   public void initMenuBar() {
 

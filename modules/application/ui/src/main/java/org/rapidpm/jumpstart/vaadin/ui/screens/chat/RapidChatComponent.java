@@ -12,6 +12,7 @@ import org.rapidpm.jumpstart.vaadin.logic.event.anotations.HandleEvent;
 import org.rapidpm.jumpstart.vaadin.logic.security.User;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.time.LocalDateTime;
 
 /**
@@ -20,17 +21,25 @@ import java.time.LocalDateTime;
 public class RapidChatComponent extends RapidChatDesign {
   private VerticalLayout chatMessageLayout;
 
+  @Override
+  public void attach() {
+    super.attach();
+    EventBus.register(this);
+  }
+
   @PostConstruct
   public void init() {
-    EventBus.register(this);
     chatMessageLayout = new VerticalLayout();
     this.chatPanel.setContent(chatMessageLayout);
     sendButton.addClickListener((event -> sendMessageEvent()));
     sendButton.setClickShortcut(ShortcutAction.KeyCode.ENTER);
     chatMessageLayout.addComponentAttachListener(event -> scrollToChat(event));
     userLabel.setValue(UI.getCurrent().getSession().getAttribute(User.class).getUsername());
+  }
 
-
+  @PreDestroy
+  public void tearDown() {
+    EventBus.unregister(this);
   }
 
   private void scrollToChat(ComponentAttachEvent event) {
@@ -50,5 +59,11 @@ public class RapidChatComponent extends RapidChatDesign {
     this.inputText.clear();
     ChatMessage chatMessage = new ChatMessage(user, LocalDateTime.now(), message);
     EventBus.fireSynchronousEvent(chatMessage);
+  }
+
+  @Override
+  public void detach() {
+    super.detach();
+    EventBus.unregister(this);
   }
 }
