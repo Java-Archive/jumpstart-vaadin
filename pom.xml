@@ -69,6 +69,11 @@
         <artifactId>jumpstart-vaadin-modules-application-logic</artifactId>
         <version>${project.version}</version>
       </dependency>
+      <dependency>
+        <groupId>org.rapidpm.microservice</groupId>
+        <artifactId>jumpstart-vaadin-modules-application-desing</artifactId>
+        <version>${project.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 

@@ -1,4 +1,4 @@
-package org.rapidpm.jumpstart.vaadin.ui.basics;
+package org.rapidpm.jumpstart.vaadin.logic.api;
 
 /**
  * RapidPM - www.rapidpm.org

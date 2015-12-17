@@ -1,5 +1,6 @@
 package org.rapidpm.jumpstart.vaadin.ui;
 
+import com.vaadin.annotations.Push;
 import com.vaadin.annotations.Theme;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.ComponentContainer;
@@ -11,6 +12,7 @@ import javax.inject.Inject;
  * Created by svenruppert on 30.11.15.
  */
 @Theme("valo")
+@Push
 public class JumpstartUI extends UI {
 
   @Inject JumpstartUIComponentFactory jumpstartUIComponentFactory;

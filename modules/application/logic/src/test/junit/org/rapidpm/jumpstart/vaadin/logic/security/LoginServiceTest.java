@@ -5,6 +5,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.rapidpm.ddi.DI;
+import org.rapidpm.ddi.ResponsibleFor;
+import org.rapidpm.ddi.implresolver.ClassResolver;
 import org.rapidpm.jumpstart.vaadin.logic.security.LoginService;
 
 import javax.inject.Inject;
@@ -40,5 +42,13 @@ public class LoginServiceTest {
     LoginService loginService;
 
 
+  }
+  @ResponsibleFor(LoginService.class)
+  public static class LoginServiceClassResolver implements ClassResolver<LoginService>{
+
+    @Override
+    public Class<? extends LoginService> resolve(Class<LoginService> interf) {
+      return AdminLoginService.class;
+    }
   }
 }

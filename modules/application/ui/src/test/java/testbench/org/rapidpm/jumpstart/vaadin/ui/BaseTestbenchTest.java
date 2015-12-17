@@ -1,22 +1,19 @@
 package testbench.org.rapidpm.jumpstart.vaadin.ui;
 
-import com.vaadin.testbench.By;
 import com.vaadin.testbench.TestBenchTestCase;
-import com.vaadin.testbench.elements.VerticalLayoutElement;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.OutputType;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
+import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.rapidpm.ddi.DI;
 import org.rapidpm.microservice.Main;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -67,8 +64,9 @@ public class BaseTestbenchTest extends TestBenchTestCase {
     // Open the test application URL with the ?restartApplication URL
     // parameter to ensure Vaadin provides us with a fresh UI instance.
     getDriver().get(baseUrl + "?restartApplication");
-
-    getTestBenchCommandExecutor().resizeViewPortTo(1280, 768);
+    if (remoteWebDriver.getCapabilities().getBrowserName().equals(BrowserType.PHANTOMJS)) {
+      getTestBenchCommandExecutor().resizeViewPortTo(1280, 768);
+    }
 
     getTestBenchCommandExecutor().enableWaitForVaadin();
 
@@ -77,9 +75,8 @@ public class BaseTestbenchTest extends TestBenchTestCase {
     String pageSource = getDriver().getPageSource();
     String errorMsg = "Application is not available at " + baseUrl + ". Server not started?";
     Assert.assertFalse(errorMsg, pageSource.contains("HTTP Status 404") ||
-        pageSource.contains("can't establish a connection to the server"));
+            pageSource.contains("can't establish a connection to the server"));
   }
-
 
 
   private RemoteWebDriver getRemoteWebDriver() {
@@ -116,8 +113,8 @@ public class BaseTestbenchTest extends TestBenchTestCase {
   protected void saveScreenshot(String name) throws IOException {
     String fileName = String.format("%s_%s.png", getClass().getSimpleName(), name);
     byte[] screenshotAs = remoteWebDriver.getScreenshotAs(OutputType.BYTES);
-    File file = new File("target" , fileName);
-    try(FileOutputStream fileOutputStream = new FileOutputStream(file)) {
+    File file = new File("target", fileName);
+    try (FileOutputStream fileOutputStream = new FileOutputStream(file)) {
       fileOutputStream.write(screenshotAs);
     }
   }
@@ -126,8 +123,6 @@ public class BaseTestbenchTest extends TestBenchTestCase {
   protected void screenshot() throws IOException {
     saveScreenshot(LocalDateTime.now().toString());
   }
-
-
 
 
 }

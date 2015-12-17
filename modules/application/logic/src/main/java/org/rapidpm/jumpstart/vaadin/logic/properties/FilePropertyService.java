@@ -41,6 +41,8 @@ public class FilePropertyService implements PropertyService {
     storage.put("menue.default.help.disclaimer", "Disclaimer"); // i18n
 
     storage.put("menue.default.main", "Home"); // i18n
-    storage.put("menue.default.main.logout", "Logout"); // i18n
+    storage.put("menue.default.main.logout", "Logout"); // i18n7
+
+    storage.put("menue.default.chat", "Chat"); // i18n
   }
 }

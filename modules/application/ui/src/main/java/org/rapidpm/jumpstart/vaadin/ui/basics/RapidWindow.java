@@ -16,7 +16,8 @@ import javax.inject.Inject;
  */
 public class RapidWindow extends Window {
 
-  public @Inject PropertyService propertyService;
+  @Inject
+  public PropertyService propertyService;
 
   private final VerticalLayout contentLayout = new VerticalLayout();
 

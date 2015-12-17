@@ -14,6 +14,8 @@ public class AdminLoginService implements LoginService {
 
   @Override
   public User loadUser(final String username, final String password) {
-    return null;
+    User user = new User();
+    user.setUsername(username);
+    return user;
   }
 }
