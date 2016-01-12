@@ -3,14 +3,12 @@ package org.rapidpm.jumpstart.vaadin.ui.screens;
 import com.vaadin.event.ShortcutAction;
 import com.vaadin.server.VaadinSession;
 import com.vaadin.ui.*;
-import org.rapidpm.ddi.DI;
 import org.rapidpm.ddi.Proxy;
 import org.rapidpm.jumpstart.vaadin.logic.api.Languages;
 import org.rapidpm.jumpstart.vaadin.logic.properties.PropertyService;
 import org.rapidpm.jumpstart.vaadin.logic.security.LoginService;
 import org.rapidpm.jumpstart.vaadin.logic.security.User;
 import org.rapidpm.jumpstart.vaadin.ui.basics.MainWindow;
-import org.rapidpm.jumpstart.vaadin.ui.basics.MainWindowImpl;
 import org.rapidpm.jumpstart.vaadin.ui.basics.RapidPanel;
 
 import javax.annotation.PostConstruct;
@@ -39,7 +37,8 @@ public class LoginScreen extends RapidPanel {
   LoginService loginService;
   @Inject
   PropertyService propertyService;
-  //@Inject
+  @Inject
+  @Proxy(virtual = true)
   MainWindow mainWindow;
 
 
@@ -88,8 +87,6 @@ public class LoginScreen extends RapidPanel {
         UI.getCurrent().setContent(null);
 
         //setting working Area
-        mainWindow = new MainWindowImpl();
-        DI.activateDI(mainWindow);
         UI.getCurrent().setContent(mainWindow);
       } else {
         Notification.show(propertyService.resolve("login.failed"), propertyService.resolve("login.failed.description"), Notification.Type.WARNING_MESSAGE);

@@ -2,7 +2,7 @@ package org.rapidpm.jumpstart.vaadin.ui.basics;
 
 import com.vaadin.ui.*;
 import org.rapidpm.jumpstart.vaadin.logic.properties.PropertyService;
-import org.rapidpm.jumpstart.vaadin.ui.menubar.MainMenuBar;
+import org.rapidpm.jumpstart.vaadin.ui.menubar.RapidMenuBar;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -17,7 +17,7 @@ public class MainWindowImpl extends VerticalLayout  implements MainWindow {
   @Inject
   private PropertyService propertyService;
   @Inject
-  private MainMenuBar menubar;
+  private RapidMenuBar menubar;
 
   @Inject
   private TopPanel topPanel;
