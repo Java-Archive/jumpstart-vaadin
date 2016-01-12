@@ -15,7 +15,7 @@ import java.util.List;
 public class JumpstartServlet extends DDIVaadinServlet {
 
   @Override
-  public List<String> topLevelPackagesToActivated() {
+  public List<String> topLevelPackagesToActivate() {
     return Collections.emptyList(); // add custom pkgs
   }
 }
