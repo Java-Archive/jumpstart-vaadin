@@ -68,7 +68,7 @@
       </dependency>
       <dependency>
         <groupId>org.rapidpm.microservice</groupId>
-        <artifactId>jumpstart-vaadin-modules-application-desing</artifactId>
+        <artifactId>jumpstart-vaadin-modules-application-design</artifactId>
         <version>${project.version}</version>
       </dependency>
     </dependencies>

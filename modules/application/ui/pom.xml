@@ -24,7 +24,7 @@
     </dependency>
     <dependency>
       <groupId>org.rapidpm.microservice</groupId>
-      <artifactId>jumpstart-vaadin-modules-application-desing</artifactId>
+      <artifactId>jumpstart-vaadin-modules-application-design</artifactId>
     </dependency>
     <dependency>
       <groupId>org.rapidpm.microservice</groupId>
@@ -67,6 +67,12 @@
       <groupId>com.vaadin</groupId>
       <artifactId>vaadin-testbench</artifactId>
       <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.eclipse.jetty.websocket</groupId>
+          <artifactId>websocket-api</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
   </dependencies>
 

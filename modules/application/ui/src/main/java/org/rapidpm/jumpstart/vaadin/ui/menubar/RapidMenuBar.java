@@ -27,6 +27,7 @@ public class RapidMenuBar extends MenuBar {
   @PostConstruct
   public void initMenuBar() {
 
+    setId(MENUBAR);
 
     addItem(propertyService.resolve("menue.default.main"), null, null)
             .addItem(propertyService.resolve("menue.default.main.logout"), menuItem -> {

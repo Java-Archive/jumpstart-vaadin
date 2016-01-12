@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html>
- <head>
-  <meta charset="UTF-8" name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src&quot;,&quot;THEME&quot;:&quot;valo&quot;}">
- </head> 
- <body> 
-  <vaadin-vertical-layout spacing="true" responsive="true" size-full="true" margin="true"> 
-   <vaadin-label size-auto="true" plain-text="">
-     Chat 
-   </vaadin-label> 
-   <vaadin-panel size-full="true" _id="chatPanel" :expand=""></vaadin-panel> 
-   <vaadin-horizontal-layout responsive="true" width-full="true" :middle="" :center=""> 
+<head>
+  <meta charset="UTF-8" name="design-properties"
+        content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src&quot;,&quot;THEME&quot;:&quot;valo&quot;}">
+</head>
+<body>
+<vaadin-vertical-layout spacing="true" responsive="true" size-full="true" margin="true">
+  <vaadin-label size-auto="true" plain-text="">
+    Chat
+  </vaadin-label>
+  <vaadin-panel size-full="true" _id="chatPanel" :expand=""></vaadin-panel>
+  <vaadin-horizontal-layout responsive="true" width-full="true" :middle="" :center="">
     <vaadin-label size-auto="true" plain-text="" _id="userLabel" :middle="" :center="">
-      User 
-    </vaadin-label> 
-    <vaadin-text-field responsive="true" width-full="true" _id="inputText" :middle="" :center="" :expand=""></vaadin-text-field> 
+      User
+    </vaadin-label>
+    <vaadin-text-field responsive="true" width-full="true" _id="inputText" :middle="" :center="" :expand=""></vaadin-text-field>
     <vaadin-button plain-text="" _id="sendButton">
-      Send 
-    </vaadin-button> 
-   </vaadin-horizontal-layout> 
-  </vaadin-vertical-layout>  
- </body>
+      Send
+    </vaadin-button>
+  </vaadin-horizontal-layout>
+</vaadin-vertical-layout>
+</body>
 </html>
