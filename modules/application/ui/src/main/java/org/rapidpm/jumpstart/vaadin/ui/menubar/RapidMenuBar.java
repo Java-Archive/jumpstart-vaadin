@@ -1,5 +1,6 @@
 package org.rapidpm.jumpstart.vaadin.ui.menubar;
 
+import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.UI;
 import org.rapidpm.ddi.DI;
 import org.rapidpm.jumpstart.vaadin.logic.properties.PropertyService;
@@ -10,22 +11,22 @@ import org.rapidpm.jumpstart.vaadin.ui.screens.info.DisclaimerScreen;
 import org.rapidpm.jumpstart.vaadin.ui.screens.info.ImpressumScreen;
 import org.rapidpm.jumpstart.vaadin.ui.screens.info.SupportScreen;
 
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 /**
  * Created by svenruppert on 07.12.15.
  */
-public class RapidMenuBar extends MainMenuBar {
+public class RapidMenuBar extends MenuBar {
 
   public static final String MENUBAR = "menubar";
 
   @Inject
   PropertyService propertyService;
 
-  @Override
+  @PostConstruct
   public void initMenuBar() {
 
-//    messages = ResourceBundle.getBundle("MessagesBundle", locale);
 
     addItem(propertyService.resolve("menue.default.main"), null, null)
             .addItem(propertyService.resolve("menue.default.main.logout"), menuItem -> {
