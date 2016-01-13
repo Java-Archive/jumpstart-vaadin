@@ -3,7 +3,6 @@ package org.rapidpm.jumpstart.vaadin.ui.screens;
 import com.vaadin.event.ShortcutAction;
 import com.vaadin.server.VaadinSession;
 import com.vaadin.ui.*;
-import org.rapidpm.ddi.Proxy;
 import org.rapidpm.jumpstart.vaadin.logic.api.Languages;
 import org.rapidpm.jumpstart.vaadin.logic.properties.PropertyService;
 import org.rapidpm.jumpstart.vaadin.logic.security.LoginService;
@@ -38,7 +37,6 @@ public class LoginScreen extends RapidPanel {
   @Inject
   PropertyService propertyService;
   @Inject
-  @Proxy(virtual = true)
   MainWindow mainWindow;
 
 

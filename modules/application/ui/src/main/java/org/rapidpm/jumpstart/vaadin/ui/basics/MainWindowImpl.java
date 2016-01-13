@@ -58,7 +58,7 @@ public class MainWindowImpl extends VerticalLayout  implements MainWindow {
     this.replaceComponent(workingAreaContainer, workingArea);
     workingAreaContainer = workingArea;
     this.workingAreaContainer.setSizeFull();
-    VerticalLayout components = new VerticalLayout();
+//    VerticalLayout components = new VerticalLayout();
     this.workingAreaContainer.setId(WORKING_AREA_CONTAINER);
     this.setExpandRatio(this.workingAreaContainer, 1.0f);
     this.setComponentAlignment(workingAreaContainer, Alignment.MIDDLE_CENTER);
