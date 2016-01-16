@@ -15,7 +15,7 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 /**
- * Created by svenruppert on 07.12.15.
+ * Created by Sven Ruppert on 07.12.15.
  */
 public class RapidMenuBar extends MenuBar {
 

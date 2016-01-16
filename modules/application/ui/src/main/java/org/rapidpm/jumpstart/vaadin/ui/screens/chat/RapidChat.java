@@ -6,7 +6,7 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 /**
- * Created by b.bosch on 10.12.2015.
+ * Created by Sven Ruppert on 10.12.2015.
  */
 public class RapidChat extends RapidPanel {
   @Inject

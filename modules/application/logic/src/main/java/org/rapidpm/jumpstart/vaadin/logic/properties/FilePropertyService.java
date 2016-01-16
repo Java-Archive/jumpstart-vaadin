@@ -5,11 +5,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by svenruppert on 07.12.15.
+ * Created by Sven Ruppert on 07.12.15.
  */
 public class FilePropertyService implements PropertyService {
 
-  private Map<String, String> storage = new HashMap<>();
+  private final Map<String, String> storage = new HashMap<>();
 
   @Override
   public String resolve(final String key) {

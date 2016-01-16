@@ -6,7 +6,7 @@ import com.vaadin.ui.ComponentContainer;
 import java.io.Serializable;
 
 /**
- * Created by svenruppert on 01.12.15.
+ * Created by Sven Ruppert on 01.12.15.
  */
 @FunctionalInterface
 public interface JumpstartUIComponentFactory extends Serializable {

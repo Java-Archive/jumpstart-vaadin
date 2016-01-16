@@ -9,7 +9,7 @@ import com.vaadin.ui.UI;
 import javax.inject.Inject;
 
 /**
- * Created by svenruppert on 30.11.15.
+ * Created by Sven Ruppert on 30.11.15.
  */
 @Theme("valo")
 @Push

@@ -6,7 +6,7 @@ import javax.annotation.PostConstruct;
 
 
 /**
- * Created by svenruppert on 07.12.15.
+ * Created by Sven Ruppert on 07.12.15.
  */
 public class BaseInfoScreen extends RapidWindow {
 

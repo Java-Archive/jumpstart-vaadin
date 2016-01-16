@@ -1,8 +1,9 @@
 package org.rapidpm.jumpstart.vaadin.ui.screens;
 
-import com.vaadin.event.ShortcutAction;
+import com.vaadin.event.ShortcutAction.KeyCode;
 import com.vaadin.server.VaadinSession;
 import com.vaadin.ui.*;
+import com.vaadin.ui.Notification.Type;
 import org.rapidpm.jumpstart.vaadin.logic.api.Languages;
 import org.rapidpm.jumpstart.vaadin.logic.properties.PropertyService;
 import org.rapidpm.jumpstart.vaadin.logic.security.LoginService;
@@ -15,7 +16,7 @@ import javax.inject.Inject;
 import java.util.Arrays;
 
 /**
- * Created by svenruppert on 07.12.15.
+ * Created by Sven Ruppert on 07.12.15.
  */
 public class LoginScreen extends RapidPanel {
 
@@ -71,7 +72,7 @@ public class LoginScreen extends RapidPanel {
     passwordField.setCaption(propertyService.resolve("login.password"));
 
     loginButton.setCaption(propertyService.resolve("login.name"));
-    loginButton.setClickShortcut(ShortcutAction.KeyCode.ENTER);
+    loginButton.setClickShortcut(KeyCode.ENTER);
     loginLayout.setCaption(propertyService.resolve("login.info"));
     loginButton.addClickListener(clickEvent -> {
       final String username = usernameField.getValue();
@@ -87,7 +88,7 @@ public class LoginScreen extends RapidPanel {
         //setting working Area
         UI.getCurrent().setContent(mainWindow);
       } else {
-        Notification.show(propertyService.resolve("login.failed"), propertyService.resolve("login.failed.description"), Notification.Type.WARNING_MESSAGE);
+        Notification.show(propertyService.resolve("login.failed"), propertyService.resolve("login.failed.description"), Type.WARNING_MESSAGE);
       }
     });
 

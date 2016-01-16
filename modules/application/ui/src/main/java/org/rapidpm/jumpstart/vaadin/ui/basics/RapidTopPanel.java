@@ -9,7 +9,7 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 /**
- * Created by b.bosch on 15.12.2015.
+ * Created by Sven Ruppert on 15.12.2015.
  */
 public class RapidTopPanel implements TopPanel {
 

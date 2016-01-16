@@ -12,7 +12,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * Created by b.bosch on 11.12.2015.
+ * Created by Sven Ruppert on 11.12.2015.
  */
 public class EventBus {
 
@@ -58,7 +58,7 @@ public class EventBus {
         Class<? extends Serializable> eventClass = (Class<? extends Serializable>) parameterTypes[0];
         SortedSet<EventHandlerInvocation> eventHandlerInvocations = HANDLER_MAP.get(eventClass);
         eventHandlerInvocations.stream().filter(eventHandlerInvocation -> eventHandlerInvocation.callsHandlerOf(objectWithHandler))
-                .forEach(deadInvocation -> eventHandlerInvocations.remove(deadInvocation));
+            .forEach(eventHandlerInvocations::remove);
       }
     }
   }

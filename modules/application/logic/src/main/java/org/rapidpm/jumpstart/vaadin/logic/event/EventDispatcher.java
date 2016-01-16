@@ -1,7 +1,7 @@
 package org.rapidpm.jumpstart.vaadin.logic.event;
 
 /**
- * Created by b.bosch on 15.12.2015.
+ * Created by Sven Ruppert on 15.12.2015.
  */
 public interface EventDispatcher<E> {
   void dispatchEvent(E event);

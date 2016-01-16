@@ -5,7 +5,7 @@ import com.vaadin.ui.ComponentContainer;
 import com.vaadin.ui.UI;
 
 /**
- * Created by b.bosch on 08.01.2016.
+ * Created by Sven Ruppert on 08.01.2016.
  */
 public interface MainWindow extends Component {
   static MainWindow getCurrent() {

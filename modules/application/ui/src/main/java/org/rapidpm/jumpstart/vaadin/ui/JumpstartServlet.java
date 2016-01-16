@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Created by svenruppert on 01.12.15.
+ * Created by Sven Ruppert on 01.12.15.
  */
 @WebServlet(urlPatterns = "/*", name = "JumpstartServlet", asyncSupported = true, displayName = "JumpstartServlet")
 @VaadinServletConfiguration(ui = JumpstartUI.class, productionMode = false)

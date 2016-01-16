@@ -6,11 +6,11 @@ import java.lang.reflect.Method;
 import java.util.Objects;
 
 /**
- * Created by b.bosch on 12.12.2015.
+ * Created by Sven Ruppert on 12.12.2015.
  */
 public class EventHandlerInvocation implements Comparable {
-  private Object objectToCall;
-  private Method handler;
+  private final Object objectToCall;
+  private final Method handler;
 
   public EventHandlerInvocation(Object objectToCall, Method handler) {
     this.objectToCall = objectToCall;
@@ -33,17 +33,17 @@ public class EventHandlerInvocation implements Comparable {
   }
 
   @Override
+  public int hashCode() {
+    return Objects.hash(objectToCall, handler);
+  }
+
+  @Override
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     EventHandlerInvocation that = (EventHandlerInvocation) o;
     return Objects.equals(objectToCall, that.objectToCall) &&
             Objects.equals(handler, that.handler);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(objectToCall, handler);
   }
 
   public boolean callsHandlerOf(Object objectWithHandler) {
