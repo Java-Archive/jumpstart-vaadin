@@ -1,3 +1,22 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
 package testbench.org.rapidpm.jumpstart.vaadin.ui;
 
 import com.vaadin.testbench.TestBenchTestCase;
@@ -18,9 +37,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
-/**
- * Created by svenruppert on 30.11.15.
- */
 public class BaseTestbenchTest extends TestBenchTestCase {
 
   public static final String baseUrl = "http://localhost:" + Main.DEFAULT_SERVLET_PORT + Main.MYAPP;
@@ -40,13 +56,6 @@ public class BaseTestbenchTest extends TestBenchTestCase {
     DI.activateDI(this);
     Main.deploy();
     setUpTestbench();
-  }
-
-  @After
-  public void tearDown() throws Exception {
-    tearDownTestbench();
-    Main.stop();
-    DI.clearReflectionModel();
   }
 
   //@Before
@@ -78,7 +87,6 @@ public class BaseTestbenchTest extends TestBenchTestCase {
             pageSource.contains("can't establish a connection to the server"));
   }
 
-
   private RemoteWebDriver getRemoteWebDriver() {
 
     String webDriver = System.getProperty(VAADIN_TESTBENCH_DRIVER_PROPERTY, DEAFAULT_WEB_DRIVER);
@@ -99,6 +107,13 @@ public class BaseTestbenchTest extends TestBenchTestCase {
     return remoteWebDriver;
   }
 
+  @After
+  public void tearDown() throws Exception {
+    tearDownTestbench();
+    Main.stop();
+    DI.clearReflectionModel();
+  }
+
   //@After
   public void tearDownTestbench() throws Exception {
 
@@ -110,6 +125,11 @@ public class BaseTestbenchTest extends TestBenchTestCase {
     getDriver().quit();
   }
 
+  @Deprecated
+  protected void screenshot() throws IOException {
+    saveScreenshot(LocalDateTime.now().toString());
+  }
+
   protected void saveScreenshot(String name) throws IOException {
     String fileName = String.format("%s_%s.png", getClass().getSimpleName(), name);
     byte[] screenshotAs = remoteWebDriver.getScreenshotAs(OutputType.BYTES);
@@ -117,11 +137,6 @@ public class BaseTestbenchTest extends TestBenchTestCase {
     try (FileOutputStream fileOutputStream = new FileOutputStream(file)) {
       fileOutputStream.write(screenshotAs);
     }
-  }
-
-  @Deprecated
-  protected void screenshot() throws IOException {
-    saveScreenshot(LocalDateTime.now().toString());
   }
 
 
