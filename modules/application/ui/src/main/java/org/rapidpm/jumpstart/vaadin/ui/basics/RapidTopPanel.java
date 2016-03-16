@@ -32,7 +32,7 @@ public class RapidTopPanel implements TopPanel {
   private final HorizontalLayout iconsLayout = new HorizontalLayout();
 
   @Inject
-  private PropertyService propertyService;
+  public PropertyService propertyService;
 
   @Override
   public Component getComponent() {

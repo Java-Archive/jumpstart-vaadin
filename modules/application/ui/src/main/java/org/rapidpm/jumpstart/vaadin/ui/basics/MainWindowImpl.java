@@ -31,12 +31,12 @@ public class MainWindowImpl extends VerticalLayout  implements MainWindow {
   public static final String WORKING_AREA_CONTAINER = "workingAreaContainer";
 
   @Inject
-  private PropertyService propertyService;
+  public PropertyService propertyService;
   @Inject
-  private RapidMenuBar menubar;
+  public RapidMenuBar menubar;
 
   @Inject
-  private TopPanel topPanel;
+  public TopPanel topPanel;
 
 
   private ComponentContainer workingAreaContainer = new RapidPanel();
