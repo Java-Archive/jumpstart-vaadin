@@ -17,16 +17,14 @@
  * under the License.
  */
 
-package org.rapidpm.microservice.optionals.vaadin;
+package org.rapidpm.jumpstart.microservice.optionals.vaadin;
 
+import com.vaadin.server.*;
 import com.vaadin.ui.UI;
 import org.rapidpm.ddi.DI;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
-
-import static com.sun.deploy.trace.TraceLevel.UI;
-import static sun.jvm.hotspot.debugger.win32.coff.DebugVC50X86RegisterEnums.DI;
 
 
 public class DDIVaadinServletService extends VaadinServletService {

@@ -43,13 +43,10 @@
       <scope>test</scope>
     </dependency>
 
-    <!--add ons ?-->
-
-    <!--add ons ?-->
-
-
-
-
+    <dependency>
+      <groupId>com.vaadin</groupId>
+      <artifactId>vaadin-client</artifactId>
+    </dependency>
 
     <dependency>
       <groupId>org.apache.httpcomponents</groupId>
