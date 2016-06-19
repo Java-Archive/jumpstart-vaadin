@@ -17,10 +17,10 @@
  * under the License.
  */
 
-package junit.org.rapidpm.microservice.optionals.vaadin;
+package junit.org.rapidpm.jumpstart.microservice.optionals.vaadin;
 
 import com.vaadin.annotations.VaadinServletConfiguration;
-import org.rapidpm.microservice.optionals.vaadin.DDIVaadinServlet;
+import org.rapidpm.jumpstart.microservice.optionals.vaadin.DDIVaadinServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
