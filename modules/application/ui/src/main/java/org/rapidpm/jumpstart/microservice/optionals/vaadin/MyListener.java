@@ -19,10 +19,10 @@
 
 package org.rapidpm.jumpstart.microservice.optionals.vaadin;
 
-import com.vaadin.wscdn.WidgetSet;
+import com.vaadin.wscdn.client.DefaultWidgetSet;
 
 import javax.servlet.annotation.WebListener;
 
 @WebListener
-public class MyListener extends WidgetSet {
+public class MyListener extends DefaultWidgetSet {
 }

@@ -4,8 +4,6 @@ import com.vaadin.annotations.Theme;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.UI;
 
-import static com.sun.deploy.trace.TraceLevel.UI;
-
 /**
  *
  */
