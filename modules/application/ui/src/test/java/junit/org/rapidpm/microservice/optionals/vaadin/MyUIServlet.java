@@ -17,7 +17,7 @@
  * under the License.
  */
 
-package junit.org.rapidpm.jumpstart.microservice.optionals.vaadin;
+package junit.org.rapidpm.microservice.optionals.vaadin;
 
 import com.vaadin.annotations.VaadinServletConfiguration;
 import org.rapidpm.jumpstart.microservice.optionals.vaadin.DDIVaadinServlet;
@@ -28,7 +28,7 @@ import javax.servlet.annotation.WebServlet;
 import java.util.Arrays;
 import java.util.List;
 
-@WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true, displayName = "Exampl002")
+@WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true, displayName = "JumpStart")
 @VaadinServletConfiguration(ui = MyUI.class, productionMode = false)
 @WebInitParam(name = "Resources", value = "http://virit.in/dawn/11")  //.addInitParam("Resources", "http://virit.in/dawn/11"))
 public class MyUIServlet extends DDIVaadinServlet {

@@ -89,6 +89,11 @@
         </exclusion>
       </exclusions>
     </dependency>
+    <dependency>
+      <groupId>com.vaadin.wscdn</groupId>
+      <artifactId>wscdn-client</artifactId>
+      <version>0.0.2</version>
+    </dependency>
   </dependencies>
 
 
@@ -182,33 +187,33 @@
       <build>
         <plugins>
           <!-- Installs PhantomJS so it doesn't have to be pre-installed -->
-          <plugin>
-            <groupId>com.github.klieber</groupId>
-            <artifactId>phantomjs-maven-plugin</artifactId>
-            <version>${phantomjs-maven-plugin.version}</version>
-            <executions>
-              <execution>
-                <goals>
-                  <goal>install</goal>
-                </goals>
-              </execution>
-            </executions>
-            <configuration>
-              <version>2.0.0</version>
-            </configuration>
-          </plugin>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-surefire-plugin</artifactId>
-            <version>2.19</version>
-            <configuration>
-              <systemPropertyVariables>
-                <vaadin.testbench.driver>phantomjs</vaadin.testbench.driver>
-                <!-- phantomjs.binary will be set by plugin -->
-                <phantomjs.binary.path>${phantomjs.binary}</phantomjs.binary.path>
-              </systemPropertyVariables>
-            </configuration>
-          </plugin>
+          <!--<plugin>-->
+            <!--<groupId>com.github.klieber</groupId>-->
+            <!--<artifactId>phantomjs-maven-plugin</artifactId>-->
+            <!--<version>${phantomjs-maven-plugin.version}</version>-->
+            <!--<executions>-->
+              <!--<execution>-->
+                <!--<goals>-->
+                  <!--<goal>install</goal>-->
+                <!--</goals>-->
+              <!--</execution>-->
+            <!--</executions>-->
+            <!--<configuration>-->
+              <!--<version>2.0.0</version>-->
+            <!--</configuration>-->
+          <!--</plugin>-->
+          <!--<plugin>-->
+            <!--<groupId>org.apache.maven.plugins</groupId>-->
+            <!--<artifactId>maven-surefire-plugin</artifactId>-->
+            <!--<version>2.19</version>-->
+            <!--<configuration>-->
+              <!--<systemPropertyVariables>-->
+                <!--<vaadin.testbench.driver>phantomjs</vaadin.testbench.driver>-->
+                <!--&lt;!&ndash; phantomjs.binary will be set by plugin &ndash;&gt;-->
+                <!--<phantomjs.binary.path>${phantomjs.binary}</phantomjs.binary.path>-->
+              <!--</systemPropertyVariables>-->
+            <!--</configuration>-->
+          <!--</plugin>-->
         </plugins>
       </build>
     </profile>

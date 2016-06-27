@@ -1,9 +1,8 @@
-package junit.org.rapidpm.jumpstart.microservice.optionals.vaadin;
+package junit.org.rapidpm.microservice.optionals.vaadin;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.UI;
-
 
 /**
  *

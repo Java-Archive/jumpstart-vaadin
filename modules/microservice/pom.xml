@@ -58,6 +58,11 @@
       <artifactId>fluent-hc</artifactId>
       <scope>test</scope>
     </dependency>
+    <!--<dependency>-->
+      <!--<groupId>org.rapidpm.microservice</groupId>-->
+      <!--<artifactId>rapidpm-microservice-modules-optionals-vaadin</artifactId>-->
+      <!--<version>0.0.5</version>-->
+    <!--</dependency>-->
 
   </dependencies>
 

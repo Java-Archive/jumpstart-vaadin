@@ -34,9 +34,6 @@ public class HelloWorldUITest {
     DI.activatePackages(HelloWorldUITest.class.getPackage().getName());
     Main.deploy();
 
-
-
-
   }
 
 
