@@ -32,6 +32,14 @@
     <phantomjs-maven-plugin.version>0.7</phantomjs-maven-plugin.version>
   </properties>
 
+  <repositories>
+    <repository>
+      <id>vaadin-addons</id>
+      <url>http://vaadin.com/nexus/content/repositories/vaadin-addons/</url>
+    </repository>
+  </repositories>
+
+
   <artifactId>jumpstart-vaadin-modules-application-ui</artifactId>
 
   <dependencies>
@@ -93,6 +101,12 @@
       <groupId>com.vaadin.wscdn</groupId>
       <artifactId>wscdn-client</artifactId>
       <version>0.0.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>2.53.0</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 
@@ -173,6 +187,14 @@
             </configuration>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
       </plugin>
 
     </plugins>

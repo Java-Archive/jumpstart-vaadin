@@ -33,7 +33,7 @@ public class LoginTestbenchTest extends TestbenchTest {
 
   @Test
   public void test001() throws Exception {
-    screenshot();
+    saveScreenshot("before");
     getElement(LoginScreen.USERNAME_FIELD).sendKeys("admin");
     getElement(LoginScreen.PASSWORD_FIELD).sendKeys("admin");
     getElement(LoginScreen.LOGIN_BUTTON).click();
@@ -41,12 +41,12 @@ public class LoginTestbenchTest extends TestbenchTest {
     final WebElement menubar = getElement(RapidMenuBar.MENUBAR);
     Assert.assertNotNull(menubar);
     Assert.assertTrue(menubar.isDisplayed());
-    screenshot();
+    saveScreenshot("after");
   }
 
   @Test
   public void test002() throws Exception {
-    screenshot();
+    saveScreenshot("before");
     getElement(LoginScreen.USERNAME_FIELD).sendKeys("admin");
     getElement(LoginScreen.PASSWORD_FIELD).sendKeys("XX");
     getElement(LoginScreen.LOGIN_BUTTON).click();
@@ -56,7 +56,7 @@ public class LoginTestbenchTest extends TestbenchTest {
     assertEquals(propertyService.resolve("login.failed.description"), notification.getDescription());
     assertEquals("warning", notification.getType());
     notification.close();
-    screenshot();
+    saveScreenshot("after");
   }
 
 }
