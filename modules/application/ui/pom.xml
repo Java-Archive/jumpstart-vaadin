@@ -56,9 +56,12 @@
       <groupId>org.rapidpm.microservice</groupId>
       <artifactId>rapidpm-microservice-modules-core</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.rapidpm.microservice</groupId>
+      <artifactId>jumpstart-vaadin-modules-optionals-microservice</artifactId>
+    </dependency>
 
-
-    <!--added be Sven-->
+    <!--added by Sven-->
     <dependency>
       <groupId>com.vaadin</groupId>
       <artifactId>vaadin-server</artifactId>
@@ -98,11 +101,6 @@
       </exclusions>
     </dependency>
     <dependency>
-      <groupId>com.vaadin.wscdn</groupId>
-      <artifactId>wscdn-client</artifactId>
-      <version>0.0.2</version>
-    </dependency>
-    <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
       <version>2.53.0</version>
@@ -113,22 +111,6 @@
 
   <build>
     <plugins>
-      <plugin>
-        <groupId>com.vaadin.wscdn</groupId>
-        <artifactId>wscdn-maven-plugin</artifactId>
-        <configuration>
-          <downloadedDirectory>target/classes/VAADIN/widgetsets</downloadedDirectory>
-          <download>true</download>
-        </configuration>
-        <executions>
-          <execution>
-            <phase>generate-sources</phase>
-            <goals>
-              <goal>generate</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-shade-plugin</artifactId>

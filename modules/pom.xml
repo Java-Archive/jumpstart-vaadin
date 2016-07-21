@@ -31,8 +31,8 @@
   <artifactId>jumpstart-vaadin-modules</artifactId>
   <packaging>pom</packaging>
   <modules>
-    <module>application</module>
     <module>microservice</module>
+    <module>application</module>
   </modules>
 
 
