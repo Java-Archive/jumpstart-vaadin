@@ -28,7 +28,7 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>jumpstart-vaadin-modules-microservice</artifactId>
+  <artifactId>jumpstart-vaadin-modules-optionals-microservice</artifactId>
 
 
   <dependencies>
@@ -37,17 +37,19 @@
       <artifactId>rapidpm-microservice-modules-core</artifactId>
     </dependency>
     <dependency>
+      <groupId>com.vaadin.wscdn</groupId>
+      <artifactId>wscdn-client</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.vaadin</groupId>
+      <artifactId>vaadin-client</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.rapidpm.microservice</groupId>
       <artifactId>rapidpm-microservice-modules-core</artifactId>
       <type>test-jar</type>
       <scope>test</scope>
     </dependency>
-
-    <dependency>
-      <groupId>com.vaadin</groupId>
-      <artifactId>vaadin-client</artifactId>
-    </dependency>
-
     <dependency>
       <groupId>org.apache.httpcomponents</groupId>
       <artifactId>httpclient</artifactId>
@@ -58,12 +60,27 @@
       <artifactId>fluent-hc</artifactId>
       <scope>test</scope>
     </dependency>
-    <!--<dependency>-->
-      <!--<groupId>org.rapidpm.microservice</groupId>-->
-      <!--<artifactId>rapidpm-microservice-modules-optionals-vaadin</artifactId>-->
-      <!--<version>0.0.5</version>-->
-    <!--</dependency>-->
-
   </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.vaadin.wscdn</groupId>
+        <artifactId>wscdn-maven-plugin</artifactId>
+        <configuration>
+          <downloadedDirectory>target/classes/VAADIN/widgetsets</downloadedDirectory>
+          <download>true</download>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>
