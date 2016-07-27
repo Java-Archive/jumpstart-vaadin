@@ -35,6 +35,7 @@
     <dependency>
       <groupId>org.rapidpm.microservice</groupId>
       <artifactId>rapidpm-microservice-modules-core</artifactId>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.vaadin.wscdn</groupId>
@@ -43,12 +44,6 @@
     <dependency>
       <groupId>com.vaadin</groupId>
       <artifactId>vaadin-client</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.rapidpm.microservice</groupId>
-      <artifactId>rapidpm-microservice-modules-core</artifactId>
-      <type>test-jar</type>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.httpcomponents</groupId>
