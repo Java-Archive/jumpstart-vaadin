@@ -45,6 +45,14 @@
         <skip>true</skip>
       </configuration>
     </plugin>
+      <!-- no code to test here -->
+    <plugin>
+      <groupId>org.pitest</groupId>
+      <artifactId>pitest-maven</artifactId>
+      <configuration>
+        <skip>true</skip>
+      </configuration>
+    </plugin>
   </plugins>
 </build>
 
