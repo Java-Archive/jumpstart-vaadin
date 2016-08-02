@@ -171,11 +171,10 @@
         </executions>
       </plugin>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
+        <groupId>org.pitest</groupId>
+        <artifactId>pitest-maven</artifactId>
         <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
+          <skip>true</skip>
         </configuration>
       </plugin>
 
