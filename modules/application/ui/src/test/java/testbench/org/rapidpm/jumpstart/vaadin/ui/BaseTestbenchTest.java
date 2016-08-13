@@ -31,6 +31,7 @@ import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.rapidpm.ddi.DI;
 import org.rapidpm.microservice.Main;
+import org.rapidpm.microservice.MainUndertow;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -39,7 +40,7 @@ import java.time.LocalDateTime;
 
 public class BaseTestbenchTest extends TestBenchTestCase {
 
-  public static final String baseUrl = "http://localhost:" + Main.DEFAULT_SERVLET_PORT + Main.MYAPP;
+  public static final String baseUrl = "http://localhost:" + MainUndertow.DEFAULT_SERVLET_PORT + MainUndertow.MYAPP;
   public static final String VAADIN_TESTBENCH_DRIVER_PROPERTY = "vaadin.testbench.driver";
   public static final String DEAFAULT_WEB_DRIVER = "firefox";
   public static final String FIREFOX = "firefox";
