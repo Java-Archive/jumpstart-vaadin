@@ -17,38 +17,31 @@
  * under the License.
  */
 
-package org.rapidpm.microservice.optionals.vaadin;
+package junit.org.rapidpm.microservice.optionals.vaadin;
 
-import com.vaadin.server.DeploymentConfiguration;
-import com.vaadin.server.ServiceException;
-import com.vaadin.server.VaadinServlet;
-import com.vaadin.server.VaadinServletService;
+import com.vaadin.annotations.VaadinServletConfiguration;
+import org.rapidpm.jumpstart.microservice.optionals.vaadin.DDIVaadinServlet;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
+import javax.servlet.annotation.WebServlet;
+import java.util.Arrays;
 import java.util.List;
 
-public abstract class DDIVaadinServlet extends VaadinServlet {
+@WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true, displayName = "JumpStart")
+@VaadinServletConfiguration(ui = MyUI.class, productionMode = false)
+@WebInitParam(name = "Resources", value = "http://virit.in/dawn/11")  //.addInitParam("Resources", "http://virit.in/dawn/11"))
+public class MyUIServlet extends DDIVaadinServlet {
+
 
   @Override
   protected void servletInitialized() throws ServletException {
     super.servletInitialized();
-
   }
-
-  //add Metrics here
 
   @Override
-  protected VaadinServletService createServletService(final DeploymentConfiguration deploymentConfiguration) throws ServiceException {
-    final DDIVaadinServletService service = new DDIVaadinServletService(this, deploymentConfiguration, topLevelPackagesToActivate());
-    service.init();
-    return service;
+  public List<String> topLevelPackagesToActivate() {
+    return Arrays.asList("org.rapipm", "junit.org.rapidpm");
   }
-
-  /**
-   * return a list of pkg names that are available for Injection
-   *
-   * @return
-   */
-  public abstract List<String> topLevelPackagesToActivate();
 
 }

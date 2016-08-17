@@ -17,7 +17,12 @@
  * under the License.
  */
 
-package org.rapidpm.jumpstart.vaadin.microservice;
+package org.rapidpm.jumpstart.microservice.optionals.vaadin;
 
-public class VaadinStartupAction {
+import com.vaadin.wscdn.WidgetSet;
+
+import javax.servlet.annotation.WebListener;
+
+@WebListener
+public class MyListener extends WidgetSet {
 }

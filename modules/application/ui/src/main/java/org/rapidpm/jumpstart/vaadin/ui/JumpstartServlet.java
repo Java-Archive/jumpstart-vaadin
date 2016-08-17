@@ -20,7 +20,7 @@
 package org.rapidpm.jumpstart.vaadin.ui;
 
 import com.vaadin.annotations.VaadinServletConfiguration;
-import org.rapidpm.microservice.optionals.vaadin.DDIVaadinServlet;
+import org.rapidpm.jumpstart.microservice.optionals.vaadin.DDIVaadinServlet;
 
 import javax.servlet.annotation.WebServlet;
 import java.util.Collections;
