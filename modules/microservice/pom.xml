@@ -38,12 +38,12 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>com.vaadin.wscdn</groupId>
-      <artifactId>wscdn-client</artifactId>
+      <groupId>com.vaadin</groupId>
+      <artifactId>vaadin-client</artifactId>
     </dependency>
     <dependency>
       <groupId>com.vaadin</groupId>
-      <artifactId>vaadin-client</artifactId>
+      <artifactId>vaadin-client-compiled</artifactId>
     </dependency>
     <dependency>
       <groupId>org.apache.httpcomponents</groupId>
@@ -60,6 +60,22 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>com.vaadin</groupId>
+        <artifactId>vaadin-maven-plugin</artifactId>
+        <version>${vaadin.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>update-theme</goal>
+              <goal>update-widgetset</goal>
+              <goal>compile</goal>
+              <!-- Comment out compile-theme goal to use on-the-fly theme compilation -->
+              <goal>compile-theme</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!--plugin>
         <groupId>com.vaadin.wscdn</groupId>
         <artifactId>wscdn-maven-plugin</artifactId>
         <configuration>
@@ -74,7 +90,7 @@
             </goals>
           </execution>
         </executions>
-      </plugin>
+      </plugin-->
     </plugins>
   </build>
 
