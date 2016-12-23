@@ -75,10 +75,10 @@ public class BaseTestbenchTest extends TestBenchTestCase {
     // parameter to ensure Vaadin provides us with a fresh UI instance.
     getDriver().get(baseUrl + "?restartApplication");
     if (remoteWebDriver.getCapabilities().getBrowserName().equals(BrowserType.PHANTOMJS)) {
-      getTestBenchCommandExecutor().resizeViewPortTo(1280, 768);
+      getCommandExecutor().resizeViewPortTo(1280, 768);
     }
 
-    getTestBenchCommandExecutor().enableWaitForVaadin();
+    getCommandExecutor().enableWaitForVaadin();
 
     // If you deploy using WTP in Eclipse, this will fail. You should
     // update baseUrl to point to where the app is deployed.
