@@ -22,13 +22,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
-    <artifactId>jumpstart-vaadin-modules-application</artifactId>
+    <artifactId>binarycache-modules-application</artifactId>
     <groupId>org.rapidpm.microservice</groupId>
-    <version>0.7.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>jumpstart-vaadin-modules-application-logic</artifactId>
+  <artifactId>binarycache-modules-application-logic</artifactId>
   <build>
     <plugins>
       <plugin>
@@ -44,28 +44,30 @@
 
 
   <dependencies>
-   <dependency>
-     <groupId>org.rapidpm.dynamic-cdi</groupId>
-     <artifactId>rapidpm-dynamic-cdi</artifactId>
 
-   </dependency>
-   <!--using Annotation Processing-->
-   <dependency>
-     <groupId>org.rapidpm.proxybuilder</groupId>
-     <artifactId>rapidpm-proxybuilder-modules-objectadapter-generator-processors</artifactId>
 
-   </dependency>
-   <dependency>
-     <groupId>org.rapidpm.proxybuilder</groupId>
-     <artifactId>rapidpm-proxybuilder-modules-objectadapter-generator-annotations</artifactId>
-     <!--<optional>true</optional>-->
-   </dependency>
-   <!--using Annotation Processing-->
+    <dependency>
+      <groupId>org.rapidpm.dynamic-cdi</groupId>
+      <artifactId>rapidpm-dynamic-cdi</artifactId>
 
-   <dependency>
-     <groupId>com.vaadin</groupId>
-     <artifactId>vaadin-server</artifactId>
-   </dependency>
+    </dependency>
+    <!--using Annotation Processing-->
+    <dependency>
+      <groupId>org.rapidpm.proxybuilder</groupId>
+      <artifactId>rapidpm-proxybuilder-modules-objectadapter-generator-processors</artifactId>
 
- </dependencies>
+    </dependency>
+    <dependency>
+      <groupId>org.rapidpm.proxybuilder</groupId>
+      <artifactId>rapidpm-proxybuilder-modules-objectadapter-generator-annotations</artifactId>
+      <!--<optional>true</optional>-->
+    </dependency>
+    <!--using Annotation Processing-->
+
+    <dependency>
+      <groupId>com.vaadin</groupId>
+      <artifactId>vaadin-server</artifactId>
+    </dependency>
+
+  </dependencies>
 </project>

@@ -22,13 +22,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
-    <artifactId>jumpstart-vaadin-modules</artifactId>
+    <artifactId>binarycache-modules</artifactId>
     <groupId>org.rapidpm.microservice</groupId>
-    <version>0.7.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>jumpstart-vaadin-modules-optionals-microservice</artifactId>
+  <artifactId>binarycache-modules-optionals-microservice</artifactId>
 
 
   <dependencies>
@@ -63,17 +63,17 @@
         <groupId>com.vaadin</groupId>
         <artifactId>vaadin-maven-plugin</artifactId>
         <version>${vaadin.version}</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>update-theme</goal>
-              <goal>update-widgetset</goal>
-              <goal>compile</goal>
+        <!--<executions>-->
+          <!--<execution>-->
+            <!--<goals>-->
+              <!--<goal>update-theme</goal>-->
+              <!--<goal>update-widgetset</goal>-->
+              <!--<goal>compile</goal>-->
               <!-- Comment out compile-theme goal to use on-the-fly theme compilation -->
-              <goal>compile-theme</goal>
-            </goals>
-          </execution>
-        </executions>
+              <!--<goal>compile-theme</goal>-->
+            <!--</goals>-->
+          <!--</execution>-->
+        <!--</executions>-->
       </plugin>
       <!--plugin>
         <groupId>com.vaadin.wscdn</groupId>

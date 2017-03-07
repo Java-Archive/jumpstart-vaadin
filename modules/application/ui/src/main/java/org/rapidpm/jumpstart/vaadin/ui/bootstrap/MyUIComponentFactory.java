@@ -22,13 +22,13 @@ package org.rapidpm.jumpstart.vaadin.ui.bootstrap;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.ComponentContainer;
 import org.rapidpm.jumpstart.vaadin.ui.JumpstartUIComponentFactory;
-import org.rapidpm.jumpstart.vaadin.ui.screens.LoginScreen;
+import org.rapidpm.jumpstart.vaadin.ui.screens.LoginScreenImpl;
 
 import javax.inject.Inject;
 
 public class MyUIComponentFactory implements JumpstartUIComponentFactory {
 
-  @Inject LoginScreen loginScreen;
+  @Inject LoginScreenImpl loginScreen;
 
   @Override
   public ComponentContainer createComponentToSetAsContent(final VaadinRequest vaadinRequest) {

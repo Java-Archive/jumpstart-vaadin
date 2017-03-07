@@ -24,7 +24,6 @@ import com.vaadin.ui.UI;
 import org.rapidpm.ddi.DI;
 import org.rapidpm.jumpstart.vaadin.logic.properties.PropertyService;
 import org.rapidpm.jumpstart.vaadin.ui.basics.MainWindow;
-import org.rapidpm.jumpstart.vaadin.ui.screens.chat.RapidChat;
 import org.rapidpm.jumpstart.vaadin.ui.screens.info.ContactScreen;
 import org.rapidpm.jumpstart.vaadin.ui.screens.info.DisclaimerScreen;
 import org.rapidpm.jumpstart.vaadin.ui.screens.info.ImpressumScreen;
@@ -50,7 +49,7 @@ public class RapidMenuBar extends MenuBar {
               getSession().close();
               UI.getCurrent().getPage().setLocation("/");
             });
-    addItem(propertyService.resolve("menue.default.chat"), menuItem -> MainWindow.getCurrent().setWorkingAreaContainer(DI.activateDI(new RapidChat())));
+//    addItem(propertyService.resolve("menue.default.chat"), menuItem -> MainWindow.getCurrent().setWorkingAreaContainer(DI.activateDI(new RapidChat())));
     addItem(propertyService.resolve("menue.default.help"), null, null)
             .addItem(propertyService.resolve("menue.default.help.contact"), menuItem -> UI.getCurrent().addWindow(DI.activateDI(new ContactScreen())))
             .addItem(propertyService.resolve("menue.default.help.support"), menuItem -> UI.getCurrent().addWindow(DI.activateDI(new SupportScreen())))

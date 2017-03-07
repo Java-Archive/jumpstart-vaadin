@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:true,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;valo&quot;}">
+  <meta name="vaadin-version" content="8.0.0">
+  <meta name="package-mapping" content="com_vaadin:com.vaadin">
+ </head>
+ <body>
+  <vaadin-horizontal-layout content="">
+   <vaadin-vertical-layout width="100px">
+    <vaadin-label width="100px" height="25px" plain-text _id="label_username">
+      username
+    </vaadin-label>
+    <vaadin-label width="100px" height="25px" plain-text _id="label_password">
+      password
+    </vaadin-label>
+    <vaadin-label width="100px" height="25px" plain-text _id="tf_language" :middle :right>
+      language
+    </vaadin-label>
+    <vaadin-button width="100px" height="25px" plain-text _id="b_login">
+      Login
+    </vaadin-button>
+   </vaadin-vertical-layout>
+   <vaadin-vertical-layout>
+    <vaadin-text-field height="25px" _id="tf_username"></vaadin-text-field>
+    <vaadin-password-field height="25px" _id="pf_password"></vaadin-password-field>
+    <vaadin-combo-box height="25px" data-item-type="java.lang.String" _id="cb_language">
+     <option item="Option1">German</option>
+     <option item="Option2">English</option>
+    </vaadin-combo-box>
+   </vaadin-vertical-layout>
+  </vaadin-horizontal-layout>
+ </body>
+</html>

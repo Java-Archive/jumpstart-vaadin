@@ -34,8 +34,8 @@
   </parent>
 
   <groupId>org.rapidpm.microservice</groupId>
-  <artifactId>jumpstart-vaadin</artifactId>
-  <version>0.7.0-SNAPSHOT</version>
+  <artifactId>binarycache</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
 
   <inceptionYear>2013</inceptionYear>
   <organization>
@@ -43,13 +43,13 @@
     <url>http://www.rapidpm.org</url>
   </organization>
   <url>https://github.com/RapidPM/rapidpm-microservice</url>
-  <name>RapidPM MicroService Jumpstart Vaadin</name>
-  <description>A Vaadin Jumpstart inside a microservice and Dynamic-Dependency-Injection</description>
+  <name>RapidPM MicroService BinaryCache</name>
+  <description>A BinaryCache based on JCache Idea / Spec</description>
 
   <scm>
-    <url>https://github.com/JavaMicroService/jumpstart-vaadin</url>
-    <connection>scm:git:https://github.com/JavaMicroService/jumpstart-vaadin.git</connection>
-    <developerConnection>scm:git:https://github.com/JavaMicroService/jumpstart-vaadin.git</developerConnection>
+    <url>https://github.com/JavaMicroService/binarycache</url>
+    <connection>scm:git:https://github.com/JavaMicroService/binarycache.git</connection>
+    <developerConnection>scm:git:https://github.com/JavaMicroService/binarycache.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
   <developers>
@@ -64,11 +64,11 @@
   </developers>
   <issueManagement>
     <system>Github</system>
-    <url>https://github.com/JavaMicroService/jumpstart-vaadin/issues</url>
+    <url>https://github.com/JavaMicroService/binarycache/issues</url>
   </issueManagement>
   <!--<ciManagement>-->
-    <!--<system>TravisCI</system>-->
-    <!--<url>https://travis-ci.org/RapidPM/rapidpm-microservice/</url>-->
+  <!--<system>TravisCI</system>-->
+  <!--<url>https://travis-ci.org/RapidPM/rapidpm-microservice/</url>-->
   <!--</ciManagement>-->
   <licenses>
     <license>
@@ -82,12 +82,17 @@
     <dependencies>
       <dependency>
         <groupId>org.rapidpm.microservice</groupId>
-        <artifactId>jumpstart-vaadin-modules-application-logic</artifactId>
+        <artifactId>binarycache-modules-application-logic</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.rapidpm.microservice</groupId>
-        <artifactId>jumpstart-vaadin-modules-application-design</artifactId>
+        <artifactId>binarycache-modules-application-design</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.rapidpm.microservice</groupId>
+        <artifactId>binarycache-modules-optionals-microservice</artifactId>
         <version>${project.version}</version>
       </dependency>
     </dependencies>
@@ -97,24 +102,24 @@
     <plugins>
 
       <!--<plugin>-->
-        <!--<groupId>org.codehaus.mojo</groupId>-->
-        <!--<artifactId>exec-maven-plugin</artifactId>-->
-        <!--<executions>-->
-          <!--<execution>-->
-            <!--<goals>-->
-              <!--<goal>exec</goal>-->
-            <!--</goals>-->
-          <!--</execution>-->
-        <!--</executions>-->
-        <!--<configuration>-->
-          <!--<executable>java</executable>-->
-          <!--<arguments>-->
-            <!--<argument>-classpath</argument>-->
-            <!--<classpath/>-->
-            <!--<argument>org.openjdk.jmh.Main</argument>-->
-          <!--</arguments>-->
-          <!--<workingDirectory>${project.build.outputDirectory}</workingDirectory>-->
-        <!--</configuration>-->
+      <!--<groupId>org.codehaus.mojo</groupId>-->
+      <!--<artifactId>exec-maven-plugin</artifactId>-->
+      <!--<executions>-->
+      <!--<execution>-->
+      <!--<goals>-->
+      <!--<goal>exec</goal>-->
+      <!--</goals>-->
+      <!--</execution>-->
+      <!--</executions>-->
+      <!--<configuration>-->
+      <!--<executable>java</executable>-->
+      <!--<arguments>-->
+      <!--<argument>-classpath</argument>-->
+      <!--<classpath/>-->
+      <!--<argument>org.openjdk.jmh.Main</argument>-->
+      <!--</arguments>-->
+      <!--<workingDirectory>${project.build.outputDirectory}</workingDirectory>-->
+      <!--</configuration>-->
       <!--</plugin>-->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

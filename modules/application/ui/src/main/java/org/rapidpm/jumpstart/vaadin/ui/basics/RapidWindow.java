@@ -7,13 +7,6 @@ import org.rapidpm.jumpstart.vaadin.logic.properties.PropertyService;
 
 import javax.inject.Inject;
 
-/**
- * Created with IntelliJ IDEA.
- * User: marco
- * Date: 23.11.12
- * Time: 13:04
- * This is part of the RapidPM - www.rapidpm.org project. please contact chef@sven-ruppert.de
- */
 public class RapidWindow extends Window {
 
   @Inject

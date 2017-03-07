@@ -23,8 +23,11 @@ import com.vaadin.annotations.VaadinServletConfiguration;
 import org.rapidpm.jumpstart.microservice.optionals.vaadin.DDIVaadinServlet;
 
 import javax.servlet.annotation.WebServlet;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
+import static java.util.Collections.singletonList;
 
 @WebServlet(urlPatterns = "/*", name = "JumpstartServlet", asyncSupported = true, displayName = "JumpstartServlet")
 @VaadinServletConfiguration(ui = JumpstartUI.class, productionMode = false)
@@ -32,6 +35,6 @@ public class JumpstartServlet extends DDIVaadinServlet {
 
   @Override
   public List<String> topLevelPackagesToActivate() {
-    return Collections.emptyList(); // add custom pkgs
+    return singletonList("org.rapidpm");
   }
 }

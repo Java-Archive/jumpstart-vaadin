@@ -24,7 +24,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.WebElement;
 import org.rapidpm.jumpstart.vaadin.ui.menubar.RapidMenuBar;
-import org.rapidpm.jumpstart.vaadin.ui.screens.LoginScreen;
+import org.rapidpm.jumpstart.vaadin.ui.screens.LoginScreenImpl;
 import testbench.org.rapidpm.jumpstart.vaadin.ui.TestbenchTest;
 
 import static org.junit.Assert.assertEquals;
@@ -34,9 +34,9 @@ public class LoginTestbenchTest extends TestbenchTest {
   @Test
   public void test001() throws Exception {
     saveScreenshot("before");
-    getElement(LoginScreen.USERNAME_FIELD).sendKeys("admin");
-    getElement(LoginScreen.PASSWORD_FIELD).sendKeys("admin");
-    getElement(LoginScreen.LOGIN_BUTTON).click();
+    getElement(LoginScreenImpl.USERNAME_FIELD).sendKeys("admin");
+    getElement(LoginScreenImpl.PASSWORD_FIELD).sendKeys("admin");
+    getElement(LoginScreenImpl.LOGIN_BUTTON).click();
 
     final WebElement menubar = getElement(RapidMenuBar.MENUBAR);
     Assert.assertNotNull(menubar);
@@ -47,9 +47,9 @@ public class LoginTestbenchTest extends TestbenchTest {
   @Test
   public void test002() throws Exception {
     saveScreenshot("before");
-    getElement(LoginScreen.USERNAME_FIELD).sendKeys("admin");
-    getElement(LoginScreen.PASSWORD_FIELD).sendKeys("XX");
-    getElement(LoginScreen.LOGIN_BUTTON).click();
+    getElement(LoginScreenImpl.USERNAME_FIELD).sendKeys("admin");
+    getElement(LoginScreenImpl.PASSWORD_FIELD).sendKeys("XX");
+    getElement(LoginScreenImpl.LOGIN_BUTTON).click();
 
     NotificationElement notification = $(NotificationElement.class).first();
     assertEquals(propertyService.resolve("login.failed"), notification.getCaption());

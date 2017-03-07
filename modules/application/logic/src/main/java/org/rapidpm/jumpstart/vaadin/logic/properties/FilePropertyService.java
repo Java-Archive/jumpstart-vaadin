@@ -46,6 +46,10 @@ public class FilePropertyService implements PropertyService {
     storage.put("login.password", "password"); // i18n
     storage.put("login.failed", "Login failed..."); // i18n
     storage.put("login.failed.description", "Login failed, please use right User / Password combination"); // i18n
+
+    storage.put("login.language.de", "German");
+    storage.put("login.language.en", "English");
+
     storage.put("app.logo", "/images/rapidpm.PNG"); // i18n
     storage.put("app.version", "Jumpstart Version 0.x.y"); // i18n
 

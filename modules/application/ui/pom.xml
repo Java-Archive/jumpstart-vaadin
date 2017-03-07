@@ -22,9 +22,9 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
-    <artifactId>jumpstart-vaadin-modules-application</artifactId>
+    <artifactId>binarycache-modules-application</artifactId>
     <groupId>org.rapidpm.microservice</groupId>
-    <version>0.7.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
@@ -40,17 +40,17 @@
   </repositories>
 
 
-  <artifactId>jumpstart-vaadin-modules-application-ui</artifactId>
+  <artifactId>binarycache-modules-application-ui</artifactId>
 
   <dependencies>
 
     <dependency>
       <groupId>org.rapidpm.microservice</groupId>
-      <artifactId>jumpstart-vaadin-modules-application-logic</artifactId>
+      <artifactId>binarycache-modules-application-logic</artifactId>
     </dependency>
     <dependency>
       <groupId>org.rapidpm.microservice</groupId>
-      <artifactId>jumpstart-vaadin-modules-application-design</artifactId>
+      <artifactId>binarycache-modules-application-design</artifactId>
     </dependency>
     <dependency>
       <groupId>org.rapidpm.microservice</groupId>
@@ -58,7 +58,7 @@
     </dependency>
     <dependency>
       <groupId>org.rapidpm.microservice</groupId>
-      <artifactId>jumpstart-vaadin-modules-optionals-microservice</artifactId>
+      <artifactId>binarycache-modules-optionals-microservice</artifactId>
     </dependency>
 
     <!--added by Sven-->
@@ -87,7 +87,6 @@
     <dependency>
       <groupId>com.vaadin</groupId>
       <artifactId>vaadin-client-compiled</artifactId>
-      <version>${vaadin.version}</version>
     </dependency>
     <dependency>
       <groupId>com.vaadin</groupId>

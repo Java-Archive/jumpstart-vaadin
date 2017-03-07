@@ -24,7 +24,7 @@ import com.vaadin.testbench.elements.VerticalLayoutElement;
 import org.openqa.selenium.WebElement;
 import org.rapidpm.jumpstart.vaadin.logic.properties.PropertyService;
 import org.rapidpm.jumpstart.vaadin.ui.menubar.RapidMenuBar;
-import org.rapidpm.jumpstart.vaadin.ui.screens.LoginScreen;
+import org.rapidpm.jumpstart.vaadin.ui.screens.LoginScreenImpl;
 
 import javax.inject.Inject;
 
@@ -33,9 +33,9 @@ public class TestbenchTest extends BaseTestbenchTest {
   @Inject public PropertyService propertyService;
 
   public <T extends TestbenchTest> T loginAsAdmin() {
-    getElement(LoginScreen.USERNAME_FIELD).sendKeys("admin");
-    getElement(LoginScreen.PASSWORD_FIELD).sendKeys("admin");
-    getElement(LoginScreen.LOGIN_BUTTON).click();
+    getElement(LoginScreenImpl.USERNAME_FIELD).sendKeys("admin");
+    getElement(LoginScreenImpl.PASSWORD_FIELD).sendKeys("admin");
+    getElement(LoginScreenImpl.LOGIN_BUTTON).click();
     return (T) this;
   }
 
@@ -49,9 +49,9 @@ public class TestbenchTest extends BaseTestbenchTest {
   }
 
   public <T extends TestbenchTest> T walk2MenuBar() {
-    getElement(LoginScreen.USERNAME_FIELD).sendKeys("admin");
-    getElement(LoginScreen.PASSWORD_FIELD).sendKeys("admin");
-    getElement(LoginScreen.LOGIN_BUTTON).click();
+    getElement(LoginScreenImpl.USERNAME_FIELD).sendKeys("admin");
+    getElement(LoginScreenImpl.PASSWORD_FIELD).sendKeys("admin");
+    getElement(LoginScreenImpl.LOGIN_BUTTON).click();
     return (T) this;
   }
 
